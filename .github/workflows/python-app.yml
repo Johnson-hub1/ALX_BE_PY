@@ -1,0 +1,71 @@
+ 
+
+# Dress Code Predictor Based on Weather Conditions
+
+def get_dress_code(temp, humidity, wind_speed, weather):
+    dress = []
+    accessories = []
+
+    # Temperature-based clothing
+    if temp >= 30:
+        dress.append("Light T-shirt")
+        dress.append("Shorts")
+        accessories.append("Sunglasses")
+        if weather == "sunny":
+            accessories.append("Hat")
+    elif 20 <= temp < 30:
+        dress.append("T-shirt")
+        dress.append("Jeans or light pants")
+    elif 10 <= temp < 20:
+        dress.append("Sweater or hoodie")
+        dress.append("Long pants")
+    elif 0 <= temp < 10:
+        dress.append("Jacket or coat")
+        dress.append("Warm pants")
+        accessories.append("Scarf")
+    else:
+        dress.append("Heavy winter coat")
+        dress.append("Thermal pants")
+        accessories.append("Gloves")
+        accessories.append("Scarf")
+        accessories.append("Hat")
+
+    # Weather condition-based accessories
+    if weather.lower() == "rainy":
+        accessories.append("Umbrella")
+        dress.append("Raincoat or waterproof jacket")
+    elif weather.lower() == "snowy":
+        accessories.append("Snow boots")
+        dress.append("Waterproof coat")
+    elif weather.lower() == "windy":
+        if wind_speed > 20:
+            accessories.append("Windbreaker")
+
+    return dress, accessories
+
+# Example usage
+if __name__ == "__main__":
+    print("Dress Code Predictor for Weather Conditions\n")
+
+    # Get user input
+    temp = float(input("Enter temperature (°C): "))
+    humidity = float(input("Enter humidity (%): "))
+    wind_speed = float(input("Enter wind speed (km/h): "))
+    weather = input("Enter weather condition (sunny, rainy, snowy, cloudy, windy): ")
+
+    # Get dress code
+    dress, accessories = get_dress_code(temp, humidity, wind_speed, weather)
+
+    # Display recommendation
+    print("\nRecommended Dress Code:")
+    for item in dress:
+        print(f" - {item}")
+
+    print("\nSuggested Accessories:")
+    for item in accessories:
+        print(f" - {item}")
+rrors as warnings. The GitHub editor is 127 chars wide
+        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+    - name: Test with pytest
+      run: |
+        pytest
